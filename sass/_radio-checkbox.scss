@@ -1,0 +1,153 @@
+$color-one:#24aa98;
+$color-two: #65abd0;
+$font-cabin: 'Cabin', sans-serif;
+$font-size:16px;
+
+/* The container */
+.container {
+    display: block;
+    position: relative;
+    color: #383737;
+    font-size:$font-size;
+    font-family: $font-cabin;
+    cursor: pointer;
+    padding-left: 19px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+
+
+/* Hide the browser's default checkbox */
+	& input {
+	    position: absolute;
+	    opacity: 0;
+	    cursor: pointer;
+	/* When the checkbox is checked, add a blue background */
+		&:checked ~ .checkmark {
+		    background-color: $color-one;
+
+			/* Show the checkmark when checked */
+			&:after {
+			    display: block;
+			}
+		}
+
+		&:checked ~ .radiokmark {
+		    
+
+			/* Show the checkmark when checked */
+			&:after {
+			    display: block;
+			    content: '';
+			    left: 3px;
+			    top: 3px;
+			    width: 10px;
+			    height: 10px;
+			    border-radius: 5px;
+			    background-color: $color-two;
+			}
+		}
+
+	}
+
+	/* On mouse-over, add a grey background color */
+	&:hover input ~ .checkmark {
+	    background-color: $color-one;
+	    opacity: 0.5;
+	    &:after{
+	    content: '';
+	    left: 5px;
+	    top: 2px;
+	    width: 3px;
+	    height: 7px;
+	    border: solid white;
+	    border-width: 0 2px 2px 0;
+	    -webkit-transform: rotate(45deg);
+	    -ms-transform: rotate(45deg);
+	    transform: rotate(45deg);
+	}
+
+
+	}
+
+	
+
+
+
+
+
+	/* Style the checkmark/indicator */
+	& .checkmark:after {
+		content: '';
+	    left: 5px;
+	    top: 2px;
+	    width: 3px;
+	    height: 7px;
+	    border: solid white;
+	    border-width: 0 2px 2px 0;
+	    -webkit-transform: rotate(45deg);
+	    -ms-transform: rotate(45deg);
+	    transform: rotate(45deg);
+	}
+	
+
+	&--off{
+     cursor: none;
+     opacity: 0.5;
+     	&:hover input ~ .checkmark {
+     		background-color: #dee2e7;
+     	}
+     	& input:checked ~ .checkmark{
+     		background-color: #dee2e7;
+     	}
+
+	}
+
+    &--row{
+    	margin: -10px 0  0 30px;
+    }
+
+
+}
+
+
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background-color: #dee2e7;
+    border-radius: 5px;
+
+	/* Create the checkmark/indicator (hidden when not checked) */
+	&:after {
+	    content: "";
+	    position: absolute;
+	    display: none;
+	}
+
+
+}
+
+/* Create a custom radiokmark */
+.radiokmark{
+	position: absolute;
+    top: 2px;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background-color: #dee2e7;
+    border-radius: 8px;
+
+	/* Create the checkmark/indicator (hidden when not checked) */
+	&:after {
+	    content: "";
+	    position: absolute;
+	    display: none;
+	}
+}

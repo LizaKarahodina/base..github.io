@@ -1,0 +1,294 @@
+$btn-split-wight: 46px;
+$btn-split-height: 48px;
+$btn-split-height-small: 36px;
+$color-normal:#24aa98;
+$color-hover:#1a9385;
+$color-active:#42c7b7;
+$font-cabin: 'Cabin', sans-serif;
+$font-size:16px;
+$padding-top-btn-split--dropbtn-items: ($btn-split-height - $font-size)/2;
+
+$color-right: #24aa98;
+$color-wrong: #db7560;
+$input-fields-border-type:2px solid #c6ccd2;
+$input-fields-border-active:2px solid #65abd0;
+$input-fields-border-right:2px solid $color-right;
+$input-fields-border-wrong:2px solid $color-wrong;
+ 
+
+ @mixin square($height-size){
+ 	width: $height-size;
+ 	height: $height-size;
+ }
+.btn-split{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	height: $btn-split-height;
+	box-sizing:border-box;
+	background-color: $color-normal;
+	color: #fff;
+	border: none;
+	margin-left: 10px;
+	margin-right: 10px;
+	font-size: $font-size;
+	font-family: $font-cabin;
+	vertical-align: bottom;
+	
+	&:hover{
+		background-color: $color-hover;
+	}
+	&:active{
+		background-color: $color-active;
+	}
+    &--left{
+    	border-radius: 5px 0 0  5px ; 
+        margin-right: -2px;
+    }
+    &--center{
+		margin-right: -2px;
+		margin-left: -2px;
+    }
+   &--right{
+	   	border-radius: 0 5px 5px 0; 
+	    margin-left: -2px;
+   }
+   &--separete{
+   	  border-radius: 5px;
+   }
+   &--small{
+   	  width: $btn-split-wight;
+   	  
+   	  &.btn-split--left {
+   	  	border-right: 1px solid rgba(0, 0, 0, .1);
+   	  }
+   	  &.btn-split--center {
+   	  	border-right: 1px solid rgba(0, 0, 0, .1);
+		border-left: 1px solid rgba(0, 0, 0, .1);
+   	  }
+   	  &.btn-split--right {
+   	  	border-left: 1px solid rgba(0, 0, 0, .1);
+   	  }
+   }
+   &--sent{
+      margin-left: -3px;
+      border-radius: 0 5px 5px 0;
+      padding-right: 19px;
+	  padding-left: 19px;
+   }
+   &--square{
+     @include square($btn-split-height);
+   }
+   &--square-small{
+     @include square($btn-split-height-small);
+   }
+   &--dropbtn{
+	   padding-left: 17px;
+	   padding-right: 32px;
+	   position: relative;
+       &--fixed {
+       	width: 220px;
+       	 
+
+       }
+       &:after{
+       	content: url(../svg/small-forward-icon.svg); 
+       	position: absolute;
+       	top: $padding-top-btn-split--dropbtn-items;
+       	right: 17px;
+       	transform: rotate(90deg);
+
+       }
+
+	   &:hover{
+		   	
+		   	&.btn-split--right{
+		   		border-radius: 0 5px 0 0;
+		   	}
+		   	&.btn-split--left{
+		   		border-radius: 5px 0 0 0;
+		   	}
+	        &.btn-split--separete{
+		   		border-radius: 5px 5px 0 0;
+		   	}
+		   	&:after{
+	       	content: url(../svg/small-forward-icon.svg); 
+	       	position: absolute;
+	       	top: $padding-top-btn-split--dropbtn-items;
+	       	right: 17px;
+	       	transform: rotate(270deg);
+
+       		}
+	    }
+
+		&-items{
+		   	display: none;
+	    }
+
+		&:hover .btn-split--dropbtn-items {
+		    position: absolute;
+		   	top:100%;
+		   	left: 0;
+		    display: block;
+		    width: 100%;
+
+	       & a{
+	       	width: inherit;
+		  	height: $btn-split-height;
+		  	color: #fff;
+		  	padding-top: $padding-top-btn-split--dropbtn-items;
+		  	border-top: 1px solid #1a877b;
+		  	border-bottom: 1px solid #1a877b;
+		  	background-color: $color-normal;
+		  	display: block;
+		  	text-decoration: none;
+		  	box-sizing:border-box;
+			   &:first-child{
+			   	border-top: none;
+			   }
+			   &:last-child{
+			   border-bottom: none;
+			    border-radius: 0 0 5px 5px;
+			   }
+			   &:hover{
+				background-color: $color-hover;
+				}
+				&:active{
+				background-color: $color-active;
+				}
+			}
+	    }	   
+	}
+}
+
+
+$input-field-width:220px;
+
+[type="text"],
+[type="email"],
+[type="password"],
+[type="number"],
+[type="tel"],
+[type="url"],
+textarea{
+	box-sizing: border-box;
+	border: $input-fields-border-type;
+	font-size: $font-size;
+	color:#b4bbc2;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: $font-size;
+	font-family: $font-cabin;
+	&:focus{
+     color: #383737;
+     border: $input-fields-border-active;
+     
+   }
+}
+
+textarea{
+	width: 480px;
+	height: 142px;
+	padding: 18px;
+	border-radius: 5px;
+}
+
+.input-field {
+	width: $input-field-width;
+	height: $btn-split-height;
+    outline: none;
+    padding: 3px 12px 3px 10px;
+
+
+   &--small{
+   	height: $btn-split-height-small;
+   }
+   
+
+    &--active:focus{
+		border: $input-fields-border-active;
+     }
+     &--worng, &--right{
+        padding-right: 30px;
+     }
+     &--worng:focus {
+		border: $input-fields-border-wrong;
+		background: url("../svg/Delete Icon.svg");
+        background-repeat: no-repeat;
+        background-position: right 15px center;
+     }
+     &--right:focus{
+       	 border: $input-fields-border-right;
+       	 background: url("../svg/Check Icon.svg");
+         background-repeat: no-repeat;
+         background-position: right 15px center;
+       }
+
+   &--left{
+   	border-bottom: $input-fields-border-type;
+	border-left: $input-fields-border-type;
+	border-top: $input-fields-border-type;
+	border-right: none;
+	@extend .btn-split--left;
+
+   }
+   &--center{
+   	 border-bottom: $input-fields-border-type;
+	border-top: $input-fields-border-type;
+	border-right: none;
+	border-left:none;
+	@extend .btn-split--center;
+
+   }
+   &--separete{
+   	 @extend .btn-split--separete;
+   	 border: $input-fields-border-type;
+   	 margin-left: 10px;
+	 margin-right: 10px;
+
+   }
+
+   &--rounded{
+   	  border-radius: $btn-split-height/2;
+      padding-right:35px;
+      padding-left:45px;
+
+     
+      
+   }
+}
+
+.container-input{
+	position: relative;
+	 &__find, &__detele{
+        background: none;
+        border: none;
+        padding: 0;
+        position: absolute;
+        top:50%;
+        transform:translate(0,-50%);
+	}
+
+	&__find{
+		opacity: 0.5;
+		left: 28px;
+	}
+	&__detele{
+		right: 28px;
+		display: none;
+	}
+
+   & .input-field--rounded:focus ~ &__find{
+      opacity: 1;
+   }
+   & .input-field--rounded:focus ~ &__detele{
+      display: block;
+   }
+
+
+}
+
+
+
+
+
+

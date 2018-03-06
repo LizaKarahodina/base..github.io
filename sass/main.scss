@@ -1,0 +1,335 @@
+@import 'split_button';
+@import 'radio-checkbox';
+@import 'switch';
+@import 'progress';
+
+
+$font-cabin: 'Cabin', sans-serif;
+$btn-n-color2:#fff;
+$btn-n-color1:#65abd0;
+$btn-n-color3:#5093b7;
+$btn-size-height-big: 60px;
+$btn-size-height-normal: 50px;
+$btn-size-height-small: 36px;
+$margin-right-left:20px;
+
+@mixin inverse($color){
+   border: 2px solid $color;
+   color: $color;
+   background-color: unset;
+ }
+
+.btn-type1{
+	background-color: $btn-n-color1;
+	font-family: $font-cabin;
+	font-size: 16px;
+	color: $btn-n-color2;
+	min-width: 140px;
+	height: $btn-size-height-normal;
+	box-sizing: border-box;
+	border: none;
+	margin: 25px $margin-right-left;
+  text-decoration:none;
+  
+  &:hover{
+    background-color: #5093b7;
+    color: $btn-n-color2;
+    border:none;
+
+  }
+
+  &:active{
+     background-color: #77bfe5;
+    color: $btn-n-color2;
+    border:none;
+  }
+  
+
+	&--big{
+		min-width: 190px;
+		height: 60px;
+		font-size: 18px;
+	}
+	&--small{
+		min-width: 120px;
+		height: 36px;
+		font-size: 14px;
+	}
+	&--rounded{
+		border-radius: 5px;
+	}
+	&--round{
+		border-radius: 30px ;
+
+	}
+	&--ghost{
+		@extend .btn-type1--round;
+		background-color: $btn-n-color2;
+		color: $btn-n-color1;
+		border: 2px solid $btn-n-color1;
+   
+	}
+
+
+  &--circle-normal{
+    @extend .btn-type1--round;
+    min-width: $btn-size-height-normal;
+  }
+  &--circle-big{
+    @extend .btn-type1--round;
+    min-width: $btn-size-height-big;
+  }
+  &--circle-small{
+    @extend .btn-type1--round;
+    min-width: $btn-size-height-small;
+  }
+  &--square-normal{
+    @extend .btn-type1--rounded;
+    min-width: $btn-size-height-normal;
+  }
+  &--square-small{
+    @extend .btn-type1--rounded;
+    min-width: $btn-size-height-small;
+  }
+
+  &--arrow{
+      border-radius: 5px 0 0  5px ;
+      min-width: 75px;
+      position: relative;
+    &:after{
+         content: '';
+         position: absolute;
+         top: 6px;
+         left: 55px;
+         width: 38px;
+         height: 38px;
+         z-index: -1;
+         background-color:$btn-n-color1;
+         border-radius: 5px;
+         transition: translate(-50%);
+         transform: rotate(45deg);
+
+
+       
+    }
+
+    &:hover:after {
+       background-color: #5093b7;
+    }
+    &:active:after {
+       background-color: #77bfe5;
+    }
+
+  }
+   &--arrow-small{
+      border-radius: 5px 0 0  5px ;
+      min-width: 90px;
+      position: relative;
+    &:after{
+         content: '';
+         position: absolute;
+         top: 4px;
+         left: 75px;
+         width: 28px;
+         height: 28px;
+         z-index: -1;
+         background-color:$btn-n-color1;
+         border-radius: 5px;
+         transition: translate(-50%);
+         transform: rotate(45deg);
+       
+    }
+    &:hover:after {
+       background-color: #5093b7;
+    }
+    &:active:after {
+       background-color: #77bfe5;
+    }
+  }
+  &--split{
+    min-width: $btn-size-height-small;
+    height: $btn-size-height-small;
+    box-sizing: content-box;
+    
+
+  }
+  &--split-left{
+  	@extend .btn-type1--split;
+  	margin-right: -2px;
+  	margin-left: $margin-right-left;
+  	border-radius: 5px 0 0  5px ; 
+    border-right: 1px solid rgba(0, 0, 0, .1);
+  }
+   &--split-right{
+   	@extend .btn-type1--split;
+  	margin-left: -2px;
+  	margin-right: $margin-right-left;
+  	border-radius: 0 5px 5px 0; 
+    border-left: 1px solid rgba(0, 0, 0, .1);
+
+  }
+
+  &--notifications{
+    background-color: rgba(255,255,255, .3);
+    margin: 0 10px 5px 0;
+    &:hover{
+      background-color: rgba(255,255,255, .5);
+    }
+    &:active{
+      background-color: rgba(255,255,255, .5);
+    }
+
+
+  }
+
+  &--popover{
+    min-width: 80px;
+    margin: 0 12px 0 0;
+    &-type1{
+      background-color: #24aa98;
+      &:hover{
+        background-color: #1a9385;
+      }
+      &:active{
+        background-color: #42c7b7;
+      }
+
+      &-inverse{
+        @include inverse(#24aa98);
+      }
+    }
+
+    &-type2{
+      background-color: #d9c26c;
+      &:hover{
+        background-color: #c9b248;
+      }
+      &:active{
+        background-color: #e8d48b;
+      }
+
+      &-inverse{
+        @include inverse(#d9c26c);
+      }
+    }
+    
+  }
+
+}
+
+.table{
+  border-collapse: collapse;
+  width: 700px;
+  font-family: $font-cabin;
+  font-size: 16px;
+  color: #383737;
+  text-align: center;
+  th{
+    color:#dee2e7;
+    font-size: 14px;
+  }
+  td:nth-child(1){
+    color:#dee2e7;
+  }
+  tr{
+    height: 48px;
+   
+  }
+  td, th{
+     border-bottom: 2px solid #dee2e7;
+  }
+  .active td:nth:nth-child(n+1){
+    color: #24aa98;
+  }
+}
+
+
+.notifications{
+  font-family: $font-cabin;
+  font-size: 16px;
+  padding: 16px 70px 13px 18px;
+  position: relative;
+  color: #fff;
+  width: 940px;
+  margin: 25px 0;
+  border-radius: 5px;
+  box-sizing:border-box;
+
+ 
+
+  &--type1{
+    background-color: #24aa98;
+  }
+
+   &--type2{
+    background-color: #d9c26c;
+  }
+
+   &--type3{
+    background-color: #db7560;
+  }
+
+
+}
+ .close{
+    position: absolute;
+    right: 19px;
+    z-index: 2;
+    cursor: pointer;
+  }
+
+.popover{
+ font-family: $font-cabin;
+font-size: 16px;
+ color:#fff;
+ background-color: #4c4b4b;
+ padding: 16px 60px 24px 23px;
+ width: 460px;
+ border-radius: 5px;
+ margin: 25px 20px 25px 0; 
+ position: relative;
+ &__header{
+    font-size: 24px;
+    line-height: 1.8em;
+    margin-top: 9px;
+ }
+
+ &--inverse{
+   @include inverse(#4c4b4b);
+   }
+}
+
+
+
+.menu-list{
+  width: 157px;
+  font-family: $font-cabin;
+  box-sizing:border-box;
+  
+  &__header, &__item{
+    width: 100%;
+    height: 36px;
+    padding-left: 12px;
+    padding-top: 10px;
+    box-sizing:border-box;
+    display: block;
+  }
+
+  &__header{
+    font-size: 14px;
+    color: #b4bbc2;
+
+  }
+  &__item{
+     text-decoration: none;
+     font-size: 16px;
+    color: #383737;
+    &:hover{
+        background-color: #65abd0;
+        color: #fff;
+        border-radius: 5px;
+    }
+  }
+
+  &:nth-child(n+1) {border-top: 2px solid #b4bbc2;}
+}
